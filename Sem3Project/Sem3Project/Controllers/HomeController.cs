@@ -11,7 +11,7 @@ namespace Sem3Project.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            var stringa = "AB";
+            var stringa = "ABC";
             return View();
         }
     }
