@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Sem3Project.Controllers
+namespace Sem3Project.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class CategoryController : Controller
     {
-        // GET: Home
+        // GET: Admin/Category
         public ActionResult Index()
         {
-            return RedirectToAction("Index", "Employee", new { area = "Admin" });
+            return View();
         }
+
+ 
     }
 }

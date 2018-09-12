@@ -4,14 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Sem3Project.Controllers
+namespace Sem3Project.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class SupplierController : Controller
     {
-        // GET: Home
+        // GET: Admin/Supplier
         public ActionResult Index()
         {
-            return RedirectToAction("Index", "Employee", new { area = "Admin" });
+            return View();
         }
     }
 }
