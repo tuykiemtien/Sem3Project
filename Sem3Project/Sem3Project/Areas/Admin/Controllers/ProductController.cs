@@ -94,7 +94,7 @@ namespace Sem3Project.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Insert()
         {
-            HttpPostedFileBase file = Request.Files[0];
+            //HttpPostedFileBase file = Request.Files[0];
             ProductDTO p = new ProductDTO();
           
             p.ProductName = Request.Params["ProductName"];
@@ -118,16 +118,16 @@ namespace Sem3Project.Areas.Admin.Controllers
                 var fileName = "";
                 var imageLink = @"~/Upload/Product/";
 
-                if (file != null)
-                {
+                //if (file != null)
+                //{
 
-                    fileName = Path.GetFileName(file.FileName);
-                    string[] splitName = fileName.Split('.');
-                    fileName = "p" + lastCate.ProductID + "." + splitName[1];
-                    file.SaveAs(HttpContext.Server.MapPath(imageLink) + fileName);
-                }
+                //    fileName = Path.GetFileName(file.FileName);
+                //    string[] splitName = fileName.Split('.');
+                //    fileName = "p" + lastCate.ProductID + "." + splitName[1];
+                //    file.SaveAs(HttpContext.Server.MapPath(imageLink) + fileName);
+                //}
               
-                bool checkImage = new ProductModel().PutProduct(lastCate);
+                //bool checkImage = new ProductModel().PutProduct(lastCate);
                 return Json(new { Ok = true });
             }
             else

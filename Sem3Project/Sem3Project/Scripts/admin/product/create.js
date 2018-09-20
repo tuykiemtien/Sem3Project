@@ -76,6 +76,7 @@
        
         if (check) {
             //var formData = new FormData($('form').get(0));
+            var formData = new FormData();
             formData.append('productName', product.productName);
             formData.append('SupplierID', product.SupplierID);
             formData.append('CategoryID', product.CategoryID);
