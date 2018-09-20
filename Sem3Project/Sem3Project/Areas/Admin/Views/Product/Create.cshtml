@@ -1,0 +1,143 @@
+﻿@using Sem3Project.Entites
+@{
+    ViewBag.Title = "Create";
+    var list = ViewBag.listAdmin;
+}
+<section class="modal-header">
+    <h2>Create a Product</h2>
+</section>
+
+<section class="modal-body row">
+    <section>
+        <div><p class="text-danger" id="create-valid"></p></div>
+        <form class="form-horizontal" id="form" method="post" enctype="multipart/form-data">
+            <section class="col-md-6">
+                <div class="form-group">
+                    <label for="name" class="control-label col-sm-2">Product Name</label>
+                    <div class="col-sm-10">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="productName" maxlength="10" placeholder="Enter product name" style="width:280px;" />
+                            <span class="text-danger" id="ProductName-valid"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="control-label col-sm-2">Supplier</label>
+                    <div class="col-sm-10">
+                        <div class="input-group">
+                            <select class="form-control " id="Supplier" style="width: 280px;">
+                                <option value="1">Exotic Liquids</option>
+                                <option value="2">New Orleans Cajun Delights</option>
+                                <option value="3">Grandma Kelly's Homestead</option>
+                                <option value="4">Tokyo Traders</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="title" class="col-sm-2 control-label">CategoryID</label>
+                    <div class="col-sm-10">
+                        <div class="input-group">
+                            <select class="form-control " id="CategoryID" style="width: 280px;">
+                                <option value="1">Beverages</option>
+                                <option value="2">Condiments</option>
+                                <option value="3">Confections</option>
+                                <option value="4">Dairy Products</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name" class="control-label col-sm-2">QuantityPerUnit</label>
+                    <div class="col-sm-10">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="QuantityPerUnit" maxlength="10" placeholder="Enter QuantityPerUnit" style="width:280px;" />
+                            <span class="text-danger" id="QuantityPerUnit-valid"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name" class="control-label col-sm-2">UnitPrice</label>
+                    <div class="col-sm-10">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="UnitPrice" maxlength="10" placeholder="Enter UnitPrice" style="width:280px;" />
+                            <span class="text-danger" id="UnitPrice-valid"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="name" class="control-label col-sm-2">UnitsInStock</label>
+                    <div class="col-sm-10">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="UnitsInStock" maxlength="10" placeholder="Enter UnitsInStock" style="width:280px;" />
+                            <span class="text-danger" id="UnitsInStock-valid"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="name" class="control-label col-sm-2">UnitsOnOrder</label>
+                    <div class="col-sm-10">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="UnitsOnOrder" maxlength="10" placeholder="Enter UnitsOnOrder" style="width:280px;" />
+                            <span class="text-danger" id="UnitsOnOrder-valid"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="name" class="control-label col-sm-2">ReorderLevel</label>
+                    <div class="col-sm-10">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="ReorderLevel" maxlength="10" placeholder="Enter ReorderLevel" style="width:280px;" />
+                            <span class="text-danger" id="ReorderLevel-valid"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="name" class="control-label col-sm-2">Discontinued</label>
+                    <div class="col-sm-10">
+                        <div class="input-group">
+                            <select class="form-control " id="Discontinued" style="width: 280px;">
+                                <option value="1">Discontinued</option>
+                                <option value="0">Continued</option>
+                            </select>     
+                            <span class="text-danger" id="Discontinued-valid"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="control-label col-sm-2">ProductImage</label>
+                    <div class="col-sm-10">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="ProductImage" maxlength="10" placeholder="Enter ProductImage" style="width:280px;" />
+                            <span class="text-danger" id="ProductImage-valid"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+            </section>
+
+        </form>
+    </section>
+</section>
+<section class="modal-footer">
+    <div class="form-group ">
+        <div class="col-md-12">
+            <input type="button" id="create" class="btn btn-primary  login-button" value="Create">
+            <input type="button" id="cancel" class="btn  login-button" data-dismiss="modal" value="Cancel">
+        </div>
+    </div>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/caret/1.0.0/jquery.caret.min.js"></script>
+<script src="~/Scripts/admin/product/create.js"></script>
+

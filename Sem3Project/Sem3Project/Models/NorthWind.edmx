@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="NorthwindModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="NorthwindModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="Username" />
@@ -159,7 +159,7 @@
           <Property Name="TerritoryDescription" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="RegionID" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Account__Custome__6A30C649">
+        <Association Name="FK__Account__Custome__4316F928">
           <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
           <ReferentialConstraint>
@@ -171,7 +171,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Account__Employe__6B24EA82">
+        <Association Name="FK__Account__Employe__440B1D61">
           <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
           <ReferentialConstraint>
@@ -183,7 +183,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Card__CustomerId__6C190EBB">
+        <Association Name="FK__Card__CustomerId__44FF419A">
           <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
           <End Role="Card" Type="Self.Card" Multiplicity="*" />
           <ReferentialConstraint>
@@ -195,7 +195,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Card__ProductId__6D0D32F4">
+        <Association Name="FK__Card__ProductId__45F365D3">
           <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
           <End Role="Card" Type="Self.Card" Multiplicity="*" />
           <ReferentialConstraint>
@@ -378,19 +378,19 @@
           <EntitySet Name="Shippers" EntityType="Self.Shippers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Territories" EntityType="Self.Territories" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Account__Custome__6A30C649" Association="Self.FK__Account__Custome__6A30C649">
+          <AssociationSet Name="FK__Account__Custome__4316F928" Association="Self.FK__Account__Custome__4316F928">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="Account" EntitySet="Account" />
           </AssociationSet>
-          <AssociationSet Name="FK__Account__Employe__6B24EA82" Association="Self.FK__Account__Employe__6B24EA82">
+          <AssociationSet Name="FK__Account__Employe__440B1D61" Association="Self.FK__Account__Employe__440B1D61">
             <End Role="Employees" EntitySet="Employees" />
             <End Role="Account" EntitySet="Account" />
           </AssociationSet>
-          <AssociationSet Name="FK__Card__CustomerId__6C190EBB" Association="Self.FK__Card__CustomerId__6C190EBB">
+          <AssociationSet Name="FK__Card__CustomerId__44FF419A" Association="Self.FK__Card__CustomerId__44FF419A">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="Card" EntitySet="Card" />
           </AssociationSet>
-          <AssociationSet Name="FK__Card__ProductId__6D0D32F4" Association="Self.FK__Card__ProductId__6D0D32F4">
+          <AssociationSet Name="FK__Card__ProductId__45F365D3" Association="Self.FK__Card__ProductId__45F365D3">
             <End Role="Products" EntitySet="Products" />
             <End Role="Card" EntitySet="Card" />
           </AssociationSet>
@@ -431,8 +431,7 @@
             <End Role="Territories" EntitySet="Territories" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="NorthwindModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
