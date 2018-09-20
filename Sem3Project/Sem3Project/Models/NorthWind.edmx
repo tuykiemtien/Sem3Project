@@ -183,7 +183,7 @@
           <Property Name="RegionID" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'NorthWind.dbo.Alphabetical list of products' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Northwind.dbo.Alphabetical list of products' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Alphabetical list of products">
           <Key>
             <PropertyRef Name="ProductID" />
@@ -205,7 +205,7 @@ warning 6002: The table/view 'NorthWind.dbo.Alphabetical list of products' does 
           <Property Name="CategoryName" Type="nvarchar" MaxLength="15" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'NorthWind.dbo.Category Sales for 1997' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Northwind.dbo.Category Sales for 1997' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Category Sales for 1997">
           <Key>
             <PropertyRef Name="CategoryName" />
@@ -214,7 +214,7 @@ warning 6002: The table/view 'NorthWind.dbo.Category Sales for 1997' does not ha
           <Property Name="CategorySales" Type="money" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'NorthWind.dbo.Current Product List' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Northwind.dbo.Current Product List' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Current Product List">
           <Key>
             <PropertyRef Name="ProductID" />
@@ -224,7 +224,7 @@ warning 6002: The table/view 'NorthWind.dbo.Current Product List' does not have 
           <Property Name="ProductName" Type="nvarchar" MaxLength="40" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'NorthWind.dbo.Customer and Suppliers by City' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Northwind.dbo.Customer and Suppliers by City' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Customer and Suppliers by City">
           <Key>
             <PropertyRef Name="CompanyName" />
@@ -236,7 +236,7 @@ warning 6002: The table/view 'NorthWind.dbo.Customer and Suppliers by City' does
           <Property Name="Relationship" Type="varchar" MaxLength="9" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'NorthWind.dbo.Invoices' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Northwind.dbo.Invoices' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Invoices">
           <Key>
             <PropertyRef Name="CustomerName" />
@@ -277,7 +277,7 @@ warning 6002: The table/view 'NorthWind.dbo.Invoices' does not have a primary ke
           <Property Name="Freight" Type="money" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'NorthWind.dbo.Order Details Extended' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Northwind.dbo.Order Details Extended' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Order Details Extended">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -296,7 +296,7 @@ warning 6002: The table/view 'NorthWind.dbo.Order Details Extended' does not hav
           <Property Name="ExtendedPrice" Type="money" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'NorthWind.dbo.Order Subtotals' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Northwind.dbo.Order Subtotals' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Order Subtotals">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -305,7 +305,7 @@ warning 6002: The table/view 'NorthWind.dbo.Order Subtotals' does not have a pri
           <Property Name="Subtotal" Type="money" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'NorthWind.dbo.Orders Qry' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Northwind.dbo.Orders Qry' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Orders Qry">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -333,7 +333,7 @@ warning 6002: The table/view 'NorthWind.dbo.Orders Qry' does not have a primary 
           <Property Name="Country" Type="nvarchar" MaxLength="15" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'NorthWind.dbo.Product Sales for 1997' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Northwind.dbo.Product Sales for 1997' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Product Sales for 1997">
           <Key>
             <PropertyRef Name="CategoryName" />
@@ -344,7 +344,7 @@ warning 6002: The table/view 'NorthWind.dbo.Product Sales for 1997' does not hav
           <Property Name="ProductSales" Type="money" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'NorthWind.dbo.Products Above Average Price' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Northwind.dbo.Products Above Average Price' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Products Above Average Price">
           <Key>
             <PropertyRef Name="ProductName" />
@@ -353,7 +353,7 @@ warning 6002: The table/view 'NorthWind.dbo.Products Above Average Price' does n
           <Property Name="UnitPrice" Type="money" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'NorthWind.dbo.Products by Category' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Northwind.dbo.Products by Category' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Products by Category">
           <Key>
             <PropertyRef Name="CategoryName" />
@@ -367,15 +367,7 @@ warning 6002: The table/view 'NorthWind.dbo.Products by Category' does not have 
           <Property Name="Discontinued" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'NorthWind.dbo.Quarterly Orders' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Quarterly Orders">
-          <Property Name="CustomerID" Type="nchar" MaxLength="5" />
-          <Property Name="CompanyName" Type="nvarchar" MaxLength="40" />
-          <Property Name="City" Type="nvarchar" MaxLength="15" />
-          <Property Name="Country" Type="nvarchar" MaxLength="15" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'NorthWind.dbo.Sales by Category' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Northwind.dbo.Sales by Category' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Sales by Category">
           <Key>
             <PropertyRef Name="CategoryID" />
@@ -388,7 +380,7 @@ warning 6002: The table/view 'NorthWind.dbo.Sales by Category' does not have a p
           <Property Name="ProductSales" Type="money" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'NorthWind.dbo.Sales Totals by Amount' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Northwind.dbo.Sales Totals by Amount' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Sales Totals by Amount">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -400,7 +392,7 @@ warning 6002: The table/view 'NorthWind.dbo.Sales Totals by Amount' does not hav
           <Property Name="ShippedDate" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'NorthWind.dbo.Summary of Sales by Quarter' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Quarter' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Summary of Sales by Quarter">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -410,7 +402,7 @@ warning 6002: The table/view 'NorthWind.dbo.Summary of Sales by Quarter' does no
           <Property Name="Subtotal" Type="money" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'NorthWind.dbo.Summary of Sales by Year' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Summary of Sales by Year">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -419,7 +411,7 @@ warning 6002: The table/view 'NorthWind.dbo.Summary of Sales by Year' does not h
           <Property Name="OrderID" Type="int" Nullable="false" />
           <Property Name="Subtotal" Type="money" />
         </EntityType>
-        <Association Name="FK__Account__Custome__4316F928">
+        <Association Name="FK__Account__Custome__6A30C649">
           <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
           <ReferentialConstraint>
@@ -431,7 +423,7 @@ warning 6002: The table/view 'NorthWind.dbo.Summary of Sales by Year' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Account__Employe__440B1D61">
+        <Association Name="FK__Account__Employe__6B24EA82">
           <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
           <ReferentialConstraint>
@@ -443,7 +435,7 @@ warning 6002: The table/view 'NorthWind.dbo.Summary of Sales by Year' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Card__CustomerId__44FF419A">
+        <Association Name="FK__Card__CustomerId__6C190EBB">
           <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
           <End Role="Card" Type="Self.Card" Multiplicity="*" />
           <ReferentialConstraint>
@@ -455,7 +447,7 @@ warning 6002: The table/view 'NorthWind.dbo.Summary of Sales by Year' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Card__ProductId__45F365D3">
+        <Association Name="FK__Card__ProductId__6D0D32F4">
           <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
           <End Role="Card" Type="Self.Card" Multiplicity="*" />
           <ReferentialConstraint>
@@ -870,19 +862,19 @@ warning 6002: The table/view 'NorthWind.dbo.Summary of Sales by Year' does not h
     [Summary of Sales by Year].[Subtotal] AS [Subtotal]
     FROM [dbo].[Summary of Sales by Year] AS [Summary of Sales by Year]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__Account__Custome__4316F928" Association="Self.FK__Account__Custome__4316F928">
+          <AssociationSet Name="FK__Account__Custome__6A30C649" Association="Self.FK__Account__Custome__6A30C649">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="Account" EntitySet="Account" />
           </AssociationSet>
-          <AssociationSet Name="FK__Account__Employe__440B1D61" Association="Self.FK__Account__Employe__440B1D61">
+          <AssociationSet Name="FK__Account__Employe__6B24EA82" Association="Self.FK__Account__Employe__6B24EA82">
             <End Role="Employees" EntitySet="Employees" />
             <End Role="Account" EntitySet="Account" />
           </AssociationSet>
-          <AssociationSet Name="FK__Card__CustomerId__44FF419A" Association="Self.FK__Card__CustomerId__44FF419A">
+          <AssociationSet Name="FK__Card__CustomerId__6C190EBB" Association="Self.FK__Card__CustomerId__6C190EBB">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="Card" EntitySet="Card" />
           </AssociationSet>
-          <AssociationSet Name="FK__Card__ProductId__45F365D3" Association="Self.FK__Card__ProductId__45F365D3">
+          <AssociationSet Name="FK__Card__ProductId__6D0D32F4" Association="Self.FK__Card__ProductId__6D0D32F4">
             <End Role="Products" EntitySet="Products" />
             <End Role="Card" EntitySet="Card" />
           </AssociationSet>
@@ -1422,13 +1414,13 @@ warning 6002: The table/view 'NorthWind.dbo.Summary of Sales by Year' does not h
             <End Role="Territory" EntitySet="Territories" />
           </AssociationSet>
           <FunctionImport Name="CustOrderHist" ReturnType="Collection(NorthwindModel.CustOrderHist_Result)">
-            <Parameter Name="CustomerID" Mode="In" Type="String" />
+          <Parameter Name="CustomerID" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="CustOrdersDetail" ReturnType="Collection(NorthwindModel.CustOrdersDetail_Result)">
-            <Parameter Name="OrderID" Mode="In" Type="Int32" />
+          <Parameter Name="OrderID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="CustOrdersOrders" ReturnType="Collection(NorthwindModel.CustOrdersOrders_Result)">
-            <Parameter Name="CustomerID" Mode="In" Type="String" />
+          <Parameter Name="CustomerID" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Employee_Sales_by_Country" ReturnType="Collection(NorthwindModel.Employee_Sales_by_Country_Result)">
             <Parameter Name="Beginning_Date" Mode="In" Type="DateTime" />

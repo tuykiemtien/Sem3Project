@@ -84,7 +84,7 @@ namespace Sem3Project.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Insert()
         {
-            HttpPostedFileBase file = Request.Files[0];
+            //HttpPostedFileBase file = Request.Files[0];
             CategoryDTO category = new CategoryDTO();
             category.CategoryName = Request.Params["CategoryName"];
             category.Description = Request.Params["Description"];
@@ -93,20 +93,20 @@ namespace Sem3Project.Areas.Admin.Controllers
 
             if (check)
             {
-                CategoryDTO lastCate = new CategoryModel().GetAllCategory().LastOrDefault();
-                var fileName = "";
-                var imageLink = @"~/Upload/Employee/";
+                //CategoryDTO lastCate = new CategoryModel().GetAllCategory().LastOrDefault();
+                //var fileName = "";
+                //var imageLink = @"~/Upload/Employee/";
 
-                if (file != null)
-                {
+                //if (file != null)
+                //{
 
-                    fileName = Path.GetFileName(file.FileName);
-                    string[] splitName = fileName.Split('.');
-                    fileName = "employee" + lastCate.CategoryID + "." + splitName[1];
-                    file.SaveAs(HttpContext.Server.MapPath(imageLink) + fileName);
-                }
-                lastCate.CategoryImage = fileName;
-                bool checkImage = new CategoryModel().PutCategory(lastCate);
+                //    fileName = Path.GetFileName(file.FileName);
+                //    string[] splitName = fileName.Split('.');
+                //    fileName = "employee" + lastCate.CategoryID + "." + splitName[1];
+                //    file.SaveAs(HttpContext.Server.MapPath(imageLink) + fileName);
+                //}
+                //lastCate.CategoryImage = fileName;
+                //bool checkImage = new CategoryModel().PutCategory(lastCate);
                 return Json(new { Ok = true });
             }
             else
@@ -125,17 +125,17 @@ namespace Sem3Project.Areas.Admin.Controllers
             category.CategoryName = Request.Params["CategoryName"];
             category.Description = Request.Params["Description"];
 
-            if (Request.Files.Count > 0)
-            {
-                HttpPostedFileBase file = Request.Files[0];
-                var fileName = "";
-                var imageLink = @"~/Upload/Employee/";
-                fileName = Path.GetFileName(file.FileName);
-                string[] splitName = fileName.Split('.');
-                fileName = "employee" + category.CategoryID + "." + splitName[1];
-                file.SaveAs(HttpContext.Server.MapPath(imageLink) + fileName);
-                category.CategoryImage = fileName;
-            }
+            //if (Request.Files.Count > 0)
+            //{
+            //    HttpPostedFileBase file = Request.Files[0];
+            //    var fileName = "";
+            //    var imageLink = @"~/Upload/Employee/";
+            //    fileName = Path.GetFileName(file.FileName);
+            //    string[] splitName = fileName.Split('.');
+            //    fileName = "employee" + category.CategoryID + "." + splitName[1];
+            //    file.SaveAs(HttpContext.Server.MapPath(imageLink) + fileName);
+            //    category.CategoryImage = fileName;
+            //}
             bool check = new CategoryModel().PostNewCategory(category);
             if (check)
             {
@@ -149,17 +149,17 @@ namespace Sem3Project.Areas.Admin.Controllers
         public ActionResult Delete(int id)
         {
 
-            string imageLink = new CategoryModel().GetCategoryById(id).CategoryImage;
+            //string imageLink = new CategoryModel().GetCategoryById(id).CategoryImage;
             bool check = new CategoryModel().DeleteCategory(id);
             if (check)
             {
 
-                var filePath = Server.MapPath("~/Upload/Employee/" + imageLink);
-                FileInfo file = new FileInfo(filePath);
-                if (file.Exists)
-                {
-                    file.Delete();
-                }
+                //var filePath = Server.MapPath("~/Upload/Employee/" + imageLink);
+                //FileInfo file = new FileInfo(filePath);
+                //if (file.Exists)
+                //{
+                //    file.Delete();
+                //}
                 return Json(new { Ok = true });
             }
             else

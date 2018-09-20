@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Lenovo\Documents\PRJ03\Sem3Project\Sem3Project\Models\NorthWind.edmx'. 
+﻿// T4 code generation is enabled for model 'F:\SEM3\Project\Online Shopping\Sem3Project\Sem3Project\Models\NorthWind.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
