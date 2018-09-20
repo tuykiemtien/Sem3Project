@@ -1,0 +1,181 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout2.cshtml";
+}
+
+<h2>Maintain Category</h2>
+<section>
+    <section class="col col-md-10">
+        <section class="col col-md-offset-2">
+            <a onclick="createNewEmployee()" href="#" class="btn btn-primary">Create New Category</a>
+        </section>
+    </section>
+
+    <table id="data-table" class="table table-hover">
+        <thead>
+            <tr>
+                <th>Category ID</th>
+                <th>Category Name</th>
+                <th>category Description</th>
+                <th>category Image</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="content-data"></tbody>
+
+    </table>
+</section>
+<div id="dashboardModalWrapper" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width:100%; height:auto;">
+        <div class="modal-content">
+            <div id='dashboardModalContent'></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        if ($.fn.DataTable.isDataTable('#data-table')) {
+            $('#data-table').dataTable().fnDestroy();
+            $('#data-table').dataTable().empty();
+
+        }
+        var count = 0;
+        var complete = $('#data-table').DataTable(
+            {
+
+                "serverSide": true,
+                "destroy": true,
+                "processing": true,
+                "ajax":
+                    {
+                        url: "/Admin/Category/GetCategory",
+                        method: "POST",
+                        dataType: 'json'
+                    },
+                "columns":
+                    [
+                        { "data":  "CategoryID", "searchable": true },
+                        { "data": "CategoryName", "searchable": true },
+                        { "data": "Description", "searchable": true },
+                        {
+                            "render": function (data, type, JsonResultRow, meta) {
+                                return '<img src="/Upload/Employee/' + JsonResultRow.PhotoPath + '" style="width:64px;height: 64px;">';
+                            }
+                        },
+                        {
+                            "render": function (data, type, full, meta) {
+                                count++;
+                                return '<a class="btn btn-lg btn-primary" href="#" onClick="showEdit(' + full.CategoryID + ')" title="Edit this employee"><span class="glyphicon glyphicon-edit"><i></i></span></a>' +
+                                    '&nbsp;&nbsp;<a class="btn btn-lg btn-success" onClick="showDetail(' + full.CategoryID + ')" href="#" title="See details this employee"><span class="glyphicon glyphicon-align-justify"></span></a>' +
+                                    '&nbsp;&nbsp;<button class="btn btn-lg btn-danger delete-button"  value="' + full.CategoryID + '" title="Delete this employee"><span class="glyphicon glyphicon-trash"></span></button>';
+                            }
+                        }
+                    ]
+            }
+
+        );
+
+        function convertNETDateTime(sNetDate) {
+            if (sNetDate == null) return null;
+            if (sNetDate instanceof Date) return sNetDate;
+            var r = /\/Date\(([0-9]+)\)\//i
+            var matches = sNetDate.match(r);
+            if (matches.length == 2) {
+                return new Date(parseInt(matches[1]));
+            }
+            else {
+                return sNetDate;
+            }
+        };
+        function convert(str) {
+            var date = new Date(str),
+                mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+                day = ("0" + date.getDate()).slice(-2);
+            return [day, mnth, date.getFullYear()].join("-");
+        };
+        var itm = $("#data-table_filter input");
+
+        itm.unbind();
+        itm.keyup(function (e) {
+            //enter or tab
+            if (e.keyCode == 13 || this.value.length >= 3) {
+                complete.search(this.value).draw();
+            }
+            if (this.value.length == 0) {
+                complete.search(this.value).draw();
+            }
+        });
+
+        $('#data-table').on('click', 'button', function (e) {
+            e.preventDefault();
+            var self = this.value;
+
+            if (confirm('Are you sure you want to delete this?')) {
+                $.ajax({
+                    url: '/Admin/Category/Delete?id=' + self,
+                    type: "POST",
+                    data: '{id : ' + self + '}',
+                    success: function (data) {
+                        if (data.Ok) {
+
+                            alert('Delete successfully!!');
+                            $('#data-table').DataTable().ajax.reload();
+                        }
+                        else {
+                            alert('Delete failed!!');
+                        }
+                    },
+                    error: function () {
+                        alert('Server error!!');
+                    }
+                });
+            }
+        });
+
+
+
+    });
+
+
+    function createNewEmployee(e) {
+
+        var url = "/Admin/Category/Create";
+
+        $('#dashboardModalContent').load(url, function () {
+            $('#dashboardModalWrapper').modal({
+                backdrop: 'static',
+                keyboard: false
+            }, 'show');
+        });
+
+    }
+    function showEdit(e) {
+
+        var url = "/Admin/Category/Edit?id="+ e;
+
+        $('#dashboardModalContent').load(url, function () {
+            $('#dashboardModalWrapper').modal({
+                backdrop: 'static',
+                keyboard: false
+            },'show');
+        });
+
+    }
+    function showDetail(e) {
+
+        var url = "/Admin/Category/Details?id=" + e;
+
+        $('#dashboardModalContent').load(url, function () {
+            $('#dashboardModalWrapper').modal({
+                backdrop: 'static',
+                keyboard: false
+            },'show');
+        });
+
+    }
+</script>
+

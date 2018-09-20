@@ -20,6 +20,7 @@ namespace Sem3Project.Models
             this.Accounts = new HashSet<Account>();
             this.Employees1 = new HashSet<Employee>();
             this.Orders = new HashSet<Order>();
+            this.Territories = new HashSet<Territory>();
         }
     
         public int EmployeeID { get; set; }
@@ -48,5 +49,7 @@ namespace Sem3Project.Models
         public virtual Employee Employee1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Territory> Territories { get; set; }
     }
 }

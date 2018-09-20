@@ -1,0 +1,100 @@
+﻿@using Sem3Project.Entites
+@{
+    ViewBag.Title = "Edit";
+    var list = ViewBag.listAdmin;
+    Layout = null;
+}
+<section class="modal-header">
+    <h2>Edit Category</h2>
+</section>
+
+
+<section class="modal-body row">
+    <div><p class="text-danger" id="update-valid"></p></div>
+    <form class="form-horizontal" id="form" method="post" enctype="multipart/form-data">
+        <section class="col-md-6">
+            <div class="form-group">
+                <label for="name" class="control-label col-sm-2">Category Name</label>
+                <div class="col-sm-10">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="first-name" placeholder="Enter first name" style="width:280px;" />
+                        <span class="text-danger" id="first-name-valid"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name" class="control-label col-sm-2">Description</label>
+                <div class="col-sm-10">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="last-name" placeholder="Enter last name" style="width:280px;" />
+                        <span class="text-danger" id="last-name-valid"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="employee-image" class="col-sm-2 control-label">Image</label>
+                <div class="col-sm-10">
+                    <div class="input-group">
+                        <input type="file" onchange="loadFile(event)" class="form-control-file" id="employee-image" />
+                        <img id="image-upload" />
+                        <span class="text-danger" id="employee-image-valid"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+
+</section>
+<section class="modal-footer">
+    <div class="form-group ">
+        <div class="col col-md-offset-2">
+            <button type="button" id="edit" class="btn btn-primary  " value="@ViewBag.ID">Edit</button>
+            <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal" value="@ViewBag.ID">Cancel</button>
+        </div>
+
+    </div>
+</section>
+<script src="~/Scripts/admin/category/edit.js"></script>
+<script type="text/javascript">
+ $(document).ready(function () {
+        var getID = @ViewBag.ID;
+        $.ajax({
+            type: 'GET',
+            url: '/Admin/Category/GetCategoryByID?id=' + getID,
+            cache: false,
+            dataType: 'json',
+            contentType: 'application/json;charset= utf-8',
+            success: function (data) {
+
+
+                $(function () {
+                    $("#first-name").val(data.LastName);
+                    $("#last-name").val(data.LastName);
+                    $("#title").val(data.Title);
+                });
+            }
+        });
+        function convertNETDateTime(sNetDate) {
+            if (sNetDate == null) return null;
+            if (sNetDate instanceof Date) return sNetDate;
+            var r = /\/Date\(([0-9]+)\)\//i
+            var matches = sNetDate.match(r);
+            if (matches.length == 2) {
+                return new Date(parseInt(matches[1]));
+            }
+            else {
+                return sNetDate;
+            }
+        };
+        function convert(str) {
+            var date = new Date(str),
+                mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+                day = ("0" + date.getDate()).slice(-2);
+            return [date.getFullYear(), mnth, day].join("-");
+        };
+    });
+    var loadFile = function (event) {
+        var output = document.getElementById('image-upload');
+        output.src = URL.createObjectURL(event.target.files[0]);
+    };
+</script>
