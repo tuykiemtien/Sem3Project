@@ -366,6 +366,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Upload\Employee\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
