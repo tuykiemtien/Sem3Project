@@ -144,7 +144,29 @@ namespace Sem3Project.Models
             }
         }
 
+        public bool DeleteProduct(int id)
+        {
+            Product product = db.Products.FirstOrDefault(s => s.ProductID == id);
+            if (product != null)
+            {
+               
+                db.Products.Remove(product);
+                if (db.SaveChanges() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
 
-     
+
+
     }
 }

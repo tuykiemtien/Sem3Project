@@ -78,10 +78,10 @@
     $('#data-table').on('click', 'button', function (e) {
         e.preventDefault();
         var self = this.value;
-
+        debugger;
         if (confirm('Are you sure you want to delete this?')) {
             $.ajax({
-                url: '/Admin/Employee/Delete?id=' + self,
+                url: '/Admin/Product/Delete?id=' + self,
                 type: "POST",
                 data: '{id : ' + self + '}',
                 success: function (data) {

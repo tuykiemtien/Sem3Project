@@ -17,14 +17,10 @@ namespace Sem3Project.Areas.Admin.Controllers
         public ActionResult Index()
         {
             return View();
-
-
         }
-
         [HttpPost]
         public JsonResult GetProduct(DTParameters param)
         {
-
             ProductViewStore product = new ProductViewStore();
             product.PageIndex = param.Start / param.Length + 1;
             product.PageSize = param.Length;
@@ -38,7 +34,6 @@ namespace Sem3Project.Areas.Admin.Controllers
             }
             product.Order = param.SortOrder;
             ProductViewStore categories = new ProductModel().GetProductViewPage(product.Search, product.Order, product.PageIndex, product.PageSize);
-
             DTResult<ProductDTO> final = new DTResult<ProductDTO>()
             {
                 draw = param.Draw,
@@ -47,7 +42,6 @@ namespace Sem3Project.Areas.Admin.Controllers
                 recordsTotal = categories.Products.Count
             };
             return Json(final);
-
         }
 
         public ActionResult Details(int id)
@@ -56,10 +50,8 @@ namespace Sem3Project.Areas.Admin.Controllers
         }
         public ActionResult Edit(int id)
         {
-
             ViewBag.ID = id;
             ViewBag.listAdmin = new ProductModel().GetAllProducts().Where(s => !s.ProductName.Contains("Product Representative")).ToList();
-
             return PartialView();
         }
 
@@ -79,14 +71,13 @@ namespace Sem3Project.Areas.Admin.Controllers
                  p.UnitsOnOrder,
                  p.ReorderLevel,
                 p.Discontinued,
-                p.ProductImage
+                
 
             }, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Create()
         {
-
             ViewBag.listAdmin = new ProductModel().GetAllProducts().Where(s => !s.ProductName.Contains("Product  Representative")).ToList();
             return PartialView();
         }
@@ -96,38 +87,30 @@ namespace Sem3Project.Areas.Admin.Controllers
         {
             //HttpPostedFileBase file = Request.Files[0];
             ProductDTO p = new ProductDTO();
-          
             p.ProductName = Request.Params["ProductName"];
-
             p.QuantityPerUnit = Request.Params["QuantityPerUnit"];
-            p.ProductImage = Request.Params["ProductImage"];
             string strSupplierID = Request.Params["SupplierID"];
             string strCategoryID = Request.Params["CategoryID"];
             string strUnitPrice = Request.Params["UnitPrice"];
             string strUnitsInStock = Request.Params["UnitsInStock"];
             string strUnitsOnOrder = Request.Params["UnitsOnOrder"];
             string strReorderLevel = Request.Params["ReorderLevel"];
-            string strDiscontinued = Request.Params["Discontinued"];
+            //string strDiscontinued = Request.Params["Discontinued"];
+
+            p.SupplierID = Int32.Parse(strSupplierID);
+            p.CategoryID = Int32.Parse(strCategoryID);
+            p.UnitPrice = Int32.Parse(strUnitPrice);
+            p.UnitsInStock = Int16.Parse(strUnitsInStock);
+            p.UnitsOnOrder = Int16.Parse(strUnitsOnOrder);
+            p.ReorderLevel = Int16.Parse(strReorderLevel);
+            //p.Discontinued = Int32.Parse(strDiscontinued) != 0;
 
 
             bool check = new ProductModel().PostNewProduct(p);
-
             if (check)
             {
                 ProductDTO lastCate = new ProductModel().GetAllProducts().LastOrDefault();
-                var fileName = "";
-                var imageLink = @"~/Upload/Product/";
-
-                //if (file != null)
-                //{
-
-                //    fileName = Path.GetFileName(file.FileName);
-                //    string[] splitName = fileName.Split('.');
-                //    fileName = "p" + lastCate.ProductID + "." + splitName[1];
-                //    file.SaveAs(HttpContext.Server.MapPath(imageLink) + fileName);
-                //}
-              
-                //bool checkImage = new ProductModel().PutProduct(lastCate);
+           
                 return Json(new { Ok = true });
             }
             else
@@ -135,16 +118,11 @@ namespace Sem3Project.Areas.Admin.Controllers
                 return Json(new { Ok = false });
             }
         }
-
-
         public ActionResult Update()
         {
-
             int cateId = int.Parse(Request.Form["ProductID"]);
-            ProductDTO p = new ProductDTO();
-
+            ProductDTO p = new ProductModel().GetProductById(cateId); ;
             p.ProductName = Request.Params["ProductName"];
-
             p.QuantityPerUnit = Request.Params["QuantityPerUnit"];
             p.ProductImage = Request.Params["ProductImage"];
             string strSupplierID = Request.Params["SupplierID"];
@@ -153,26 +131,16 @@ namespace Sem3Project.Areas.Admin.Controllers
             string strUnitsInStock = Request.Params["UnitsInStock"];
             string strUnitsOnOrder = Request.Params["UnitsOnOrder"];
             string strReorderLevel = Request.Params["ReorderLevel"];
-            string strDiscontinued = Request.Params["Discontinued"];
-            p.SupplierID = Int16.Parse(strSupplierID);
-            p.CategoryID = Int16.Parse(strCategoryID);
-            p.UnitPrice = Int16.Parse(strUnitPrice);
+            //string strDiscontinued = Request.Params["Discontinued"];
+            p.SupplierID = Int32.Parse(strSupplierID);
+            p.CategoryID = Int32.Parse(strCategoryID);
+            p.UnitPrice = Int32.Parse(strUnitPrice);
             p.UnitsInStock = Int16.Parse(strUnitsInStock);
             p.UnitsOnOrder = Int16.Parse(strUnitsOnOrder);
             p.ReorderLevel = Int16.Parse(strReorderLevel);
-            p.Discontinued = Int32.Parse(strDiscontinued) !=0;
+            //p.Discontinued = Int32.Parse(strDiscontinued) !=0;
 
-            if (Request.Files.Count > 0)
-            {
-                HttpPostedFileBase file = Request.Files[0];
-                var fileName = "";
-                var imageLink = @"~/Upload/Product/";
-                fileName = Path.GetFileName(file.FileName);
-                string[] splitName = fileName.Split('.');
-                fileName = "product" + p.ProductID + "." + splitName[1];
-                file.SaveAs(HttpContext.Server.MapPath(imageLink) + fileName);
-               
-            }
+       
             bool check = new ProductModel().PutProduct(p);
             if (check)
             {
@@ -184,5 +152,19 @@ namespace Sem3Project.Areas.Admin.Controllers
             }
         }
 
+        public ActionResult Delete(int id)
+        {
+           
+            bool check = new ProductModel().DeleteProduct(id);
+            if (check)
+            {
+      
+                return Json(new { Ok = true });
+            }
+            else
+            {
+                return Json(new { Ok = false });
+            }
+        }
     }
 }

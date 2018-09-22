@@ -11,8 +11,8 @@
         product.UnitsInStock = $('#UnitsInStock').val();
         product.UnitsOnOrder = $('#UnitsOnOrder').val();
         product.ReorderLevel = $('#ReorderLevel').val();
-        product.Discontinued = $('#Discontinued').val();
-        product.ProductImage = $('#ProductImage').val();
+        //product.Discontinued = $('#Discontinued').val();
+        //product.ProductImage = $('#ProductImage').val();
 
         
         let check = true;
@@ -65,28 +65,28 @@
             $('#ReorderLevel-valid').text('');
         }
 
-        if (product.Discontinued == '') {
-            check = false;
-            $('#Discontinued-valid').text('This field can not empty');
-        }
-        else {
-            $('#Discontinued-valid').text('');
-        }
+        //if (product.Discontinued == '') {
+        //    check = false;
+        //    $('#Discontinued-valid').text('This field can not empty');
+        //}
+        //else {
+        //    $('#Discontinued-valid').text('');
+        //}
 
        
         if (check) {
             //var formData = new FormData($('form').get(0));
             var formData = new FormData();
-            formData.append('productName', product.productName);
+            formData.append('productName', product.ProductName);
             formData.append('SupplierID', product.SupplierID);
             formData.append('CategoryID', product.CategoryID);
             formData.append('QuantityPerUnit', product.QuantityPerUnit);
             formData.append('UnitPrice', product.UnitPrice);
             formData.append('UnitsInStock', product.UnitsInStock);
             formData.append('UnitsOnOrder',  product.UnitsOnOrder );
-            formData.append('ReorderLevely', product.ReorderLevely);
-            formData.append('Discontinued', product.Discontinued);
-            formData.append('ProductImage', product.ProductImage);
+            formData.append('ReorderLevel', product.ReorderLevel);
+            //formData.append('Discontinued', product.Discontinued);
+            //formData.append('ProductImage', product.ProductImage);
        
 
             //var form = document.querySelector('form');

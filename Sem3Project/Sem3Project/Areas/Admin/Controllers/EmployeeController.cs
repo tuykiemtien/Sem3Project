@@ -53,17 +53,14 @@ namespace Sem3Project.Areas.Admin.Controllers
         }
         public ActionResult Edit(int id)
         {
-
             ViewBag.ID = id;
             ViewBag.listAdmin = new EmployeeModels().GetAllEmployee().Where(s => !s.Title.Contains("Sales Representative")).ToList();
-
             return PartialView();
         }
 
         public JsonResult GetEmployeeByID(int id)
         {
             EmployeeDTO employee = new EmployeeModels().GetEmployeeById(id);
-
             return Json(new
             {
                 employee.Address,

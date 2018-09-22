@@ -22,10 +22,9 @@ $(document).ready(function () {
         product.UnitsInStock = $('#UnitsInStock').val();
         product.UnitsOnOrder = $('#UnitsOnOrder').val();
         product.ReorderLevel = $('#ReorderLevel').val();
-        product.Discontinued = $('#Discontinued').val();
-        product.ProductImage = $('#ProductImage').val();
+        //product.Discontinued = $('#Discontinued').val();
 
-        let image;
+       
         let check = true;
         if (product.ProductName == '') {
             check = false;
@@ -67,7 +66,6 @@ $(document).ready(function () {
             $('#UnitsOnOrder-valid').text('');
         }
 
-
         if (product.ReorderLevel == '') {
             check = false;
             $('#ReorderLevel-valid').text('This field can not empty');
@@ -76,40 +74,29 @@ $(document).ready(function () {
             $('#ReorderLevel-valid').text('');
         }
 
-        if (product.Discontinued == '') {
-            check = false;
-            $('#Discontinued-valid').text('This field can not empty');
-        }
-        else {
-            $('#Discontinued-valid').text('');
-        }
+        //if (product.Discontinued == '') {
+        //    check = false;
+        //    $('#Discontinued-valid').text('This field can not empty');
+        //}
+        //else {
+        //    $('#Discontinued-valid').text('');
+        //}
 
-        image = $('#employee-image').val();
-        if (image == '') {
-            7
-            check = false;
-            $('#employee-image-valid').text('This field can not empty');
-        }
-        else {
-            $('#employee-image-valid').text('');
-        }
         if (check) {
             //var formData = new FormData($('form').get(0));
             var formData = new FormData();
-            var file = $('#employee-image').get(0).files[0];
-            formData.append("File", file);
-            formData.append('productName', product.productName);
+            //var file = $('#employee-image').get(0).files[0];
+            //formData.append("File", file);
+            formData.append('ProductID', product.ProductID);
+            formData.append('ProductName', product.ProductName);
             formData.append('SupplierID', product.SupplierID);
             formData.append('CategoryID', product.CategoryID);
             formData.append('QuantityPerUnit', product.QuantityPerUnit);
             formData.append('UnitPrice', product.UnitPrice);
             formData.append('UnitsInStock', product.UnitsInStock);
             formData.append('UnitsOnOrder', product.UnitsOnOrder);
-            formData.append('ReorderLevely', product.ReorderLevely);
-            formData.append('Discontinued', product.Discontinued);
-            formData.append('ProductImage', product.ProductImage);
-
-
+            formData.append('ReorderLevel', product.ReorderLevel);
+            //formData.append('Discontinued', product.Discontinued);
             //var form = document.querySelector('form');
             //var formData = new FormData(form);
             $.ajax({
@@ -121,18 +108,17 @@ $(document).ready(function () {
                 processData: false,
                 success: function (data) {
                     if (data.Ok) {
-                        alert('Insert success!!');
+                        alert('Update success!!');
                         $('#data-table').DataTable().ajax.reload();
                         $('#dashboardModalWrapper').modal('toggle');
                     }
                     else {
-                        $('#create-valid').text('Insert error');
+                        $('#update-valid').text('Insert error');
                     }
                 },
                 error: function () {
-                    $('#create-valid').text('Server error');
+                    $('#update-valid').text('Server error');
                 }
-
             });
         }
     });

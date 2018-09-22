@@ -1,6 +1,6 @@
 ﻿@using Sem3Project.Entites
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
     var list = ViewBag.listAdmin;
 }
 <section class="modal-header">
@@ -9,7 +9,7 @@
 
 <section class="modal-body row">
     <section>
-        <div><p class="text-danger" id="create-valid"></p></div>
+        <div><p class="text-danger" id="update-valid"></p></div>
         <form class="form-horizontal" id="form" method="post" enctype="multipart/form-data">
             <section class="col-md-6">
                 <div class="form-group">
@@ -25,7 +25,7 @@
                     <label for="name" class="control-label col-sm-2">Supplier</label>
                     <div class="col-sm-10">
                         <div class="input-group">
-                            <select class="form-control " id="Supplier" style="width: 280px;">
+                            <select class="form-control " id="SupplierID" style="width: 280px;">
                                 <option value="1">Exotic Liquids</option>
                                 <option value="2">New Orleans Cajun Delights</option>
                                 <option value="3">Grandma Kelly's Homestead</option>
@@ -68,7 +68,6 @@
                     </div>
                 </div>
 
-
                 <div class="form-group">
                     <label for="name" class="control-label col-sm-2">UnitsInStock</label>
                     <div class="col-sm-10">
@@ -78,7 +77,6 @@
                         </div>
                     </div>
                 </div>
-
 
                 <div class="form-group">
                     <label for="name" class="control-label col-sm-2">UnitsOnOrder</label>
@@ -90,7 +88,6 @@
                     </div>
                 </div>
 
-
                 <div class="form-group">
                     <label for="name" class="control-label col-sm-2">ReorderLevel</label>
                     <div class="col-sm-10">
@@ -101,29 +98,15 @@
                     </div>
                 </div>
 
-
-                <div class="form-group">
+                @*<div class="form-group">
                     <label for="name" class="control-label col-sm-2">Discontinued</label>
                     <div class="col-sm-10">
                         <div class="input-group">
-                            <select class="form-control " id="Discontinued" style="width: 280px;">
-                                <option value="1">Discontinued</option>
-                                <option value="0">Continued</option>
-                            </select>                         
+                         
                             <span class="text-danger" id="Discontinued-valid"></span>
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="name" class="control-label col-sm-2">ProductImage</label>
-                    <div class="col-sm-10">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="ProductImage" maxlength="10" placeholder="Enter ProductImage" style="width:280px;" />
-                            <span class="text-danger" id="ProductImage-valid"></span>
-                        </div>
-                    </div>
-                </div>
-
+                </div>*@
 
             </section>
 
@@ -133,11 +116,57 @@
 <section class="modal-footer">
     <div class="form-group ">
         <div class="col-md-12">
-            <input type="button" id="create" class="btn btn-primary  login-button" value="Edit">
-            <input type="button" id="cancel" class="btn  login-button" data-dismiss="modal" value="Cancel">
+            <button type="button" id="edit" class="btn btn-primary  " value="@ViewBag.ID">Edit</button>
+            <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal" value="@ViewBag.ID">Cancel</button>
         </div>
     </div>
 </section>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/caret/1.0.0/jquery.caret.min.js"></script>
 <script src="~/Scripts/admin/product/edit.js"></script>
+<script type="text/javascript">
+ $(document).ready(function () {
+        var getID = @ViewBag.ID;
+        $.ajax({
+            type: 'GET',
+            url: '/Admin/Product/GetProductByID?id=' + getID,
+            cache: false,
+            dataType: 'json',
+            contentType: 'application/json;charset= utf-8',
+            success: function (data) {
+                $(function () {
+                    $("#productName").val(data.ProductName);
+                    $("#SupplierID").val(data.SupplierID);
+                    $("#CategoryID").val(data.CategoryID);
+                    $("#QuantityPerUnit").val(data.QuantityPerUnit);
+
+                    $("#UnitPrice").val(data.UnitPrice);
+
+                    $("#UnitsInStock").val(data.UnitsInStock);
+                    $("#UnitsOnOrder").val(data.UnitsOnOrder);
+                    $("#ReorderLevel").val(data.ReorderLevel);
+                    $("#Discontinued").val(data.Discontinued);
+        
+                });
+            }
+        });
+        function convertNETDateTime(sNetDate) {
+            if (sNetDate == null) return null;
+            if (sNetDate instanceof Date) return sNetDate;
+            var r = /\/Date\(([0-9]+)\)\//i
+            var matches = sNetDate.match(r);
+            if (matches.length == 2) {
+                return new Date(parseInt(matches[1]));
+            }
+            else {
+                return sNetDate;
+            }
+        };
+        function convert(str) {
+            var date = new Date(str),
+                mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+                day = ("0" + date.getDate()).slice(-2);
+            return [date.getFullYear(), mnth, day].join("-");
+        };
+    });
+
+</script>
 
