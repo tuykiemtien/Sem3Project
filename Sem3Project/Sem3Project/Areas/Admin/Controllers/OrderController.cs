@@ -15,7 +15,5 @@ namespace Sem3Project.Areas.Admin.Controllers
         {
             return View();
         }
-
-        
     }
 }
